@@ -44,6 +44,22 @@ Customer Places Order → Instant Push Notification → Vendor Accepts → Statu
 
 Waha consists of **two distinct applications** that communicate in real-time through Firebase:
 
+<table width="100%">
+<tr>
+<td align="center" width="50%">
+<h3>📱 Customer App (Waha)</h3>
+<img src="assets/photos/customer_icon.jpg" width="100"/>
+<p><em>Shop for fresh produce</em></p>
+</td>
+<td align="center" width="50%">
+<h3>🏪 Vendor App (Waha Store)</h3>
+<img src="assets/photos/admin_icon.jpg" width="100"/>
+<p><em>Manage orders & inventory</em></p>
+</td>
+</tr>
+</table>
+
+
 ```mermaid
 flowchart LR
     subgraph Customer["📱 Customer App"]
@@ -80,6 +96,18 @@ The **biggest technical challenge** was achieving instant, reliable synchronizat
 - **Live Inventory Updates**: Stock levels update in real-time to prevent overselling
 - **Order Status Tracking**: Customers see live updates as their order progresses through the fulfillment pipeline
 - **Offline Resilience**: Firebase's offline persistence ensures no data is lost during connectivity issues
+
+---
+
+## 🎬 Demo
+
+<div align="center">
+
+![Waha Demo](assets/photos/demo.gif)
+
+*Watch the complete order flow in action*
+
+</div>
 
 ---
 
@@ -211,13 +239,27 @@ flutter_screenutil: ^5.9.3
 
 ## 📸 Visual Showcase
 
-### Customer App Gallery
+### 📱 Customer App
 
 <div align="center">
 
-|              Home               |                Products                 |              Cart               |                Checkout                 |                Profile                |
-| :-----------------------------: | :-------------------------------------: | :-----------------------------: | :-------------------------------------: | :-----------------------------------: |
-| ![Home](assets/photos/home.jpg) | ![Products](assets/photos/products.jpg) | ![Cart](assets/photos/cart.jpg) | ![Checkout](assets/photos/checkout.jpg) | ![Profile](assets/photos/profile.jpg) |
+|                      Home                       |                      Products                       |                      Product Details                       |
+| :---------------------------------------------: | :-------------------------------------------------: | :--------------------------------------------------------: |
+| <img src="assets/photos/home.png" width="200"/> | <img src="assets/photos/products.png" width="200"/> | <img src="assets/photos/product_details.png" width="200"/> |
+
+|                      Cart                       |                      Checkout                       |                      Profile                       |
+| :---------------------------------------------: | :-------------------------------------------------: | :------------------------------------------------: |
+| <img src="assets/photos/cart.png" width="200"/> | <img src="assets/photos/checkout.png" width="200"/> | <img src="assets/photos/profile.png" width="200"/> |
+
+</div>
+
+### 🏪 Vendor App
+
+<div align="center">
+
+|                      Admin Dashboard                       |
+| :--------------------------------------------------------: |
+| <img src="assets/photos/admin_dashboard.png" width="200"/> |
 
 </div>
 
