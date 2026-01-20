@@ -1,6 +1,6 @@
-<![CDATA[<div align="center">
+<div align="center">
 
-![Waha Banner](assets/photos/banner.png)
+![Waha Banner](assets/photos/banner.jpg)
 
 # 🌴 Waha (واحة)
 
@@ -14,7 +14,7 @@
 **A production-ready, dual-app mobile ecosystem built with Flutter**  
 *Connecting customers with fresh produce vendors in Mansoura, Egypt*
 
-[📱 Customer App](#-customer-app-features) • [🏪 Vendor App](#-vendor-app-control-center) • [🏗️ Architecture](#%EF%B8%8F-system-architecture) • [📸 Screenshots](#-visual-showcase) • [💬 Community](#-join-the-community)
+[📱 Customer App](#-customer-app-features) • [🏪 Vendor App](#-vendor-app-control-center) • [🏗️ Architecture](#️-system-architecture) • [📸 Screenshots](#-visual-showcase) • [📞 Contact](#-contact--social-links)
 
 ---
 
@@ -44,8 +44,6 @@ Customer Places Order → Instant Push Notification → Vendor Accepts → Statu
 
 Waha consists of **two distinct applications** that communicate in real-time through Firebase:
 
-<div align="center">
-
 ```mermaid
 flowchart LR
     subgraph Customer["📱 Customer App"]
@@ -74,8 +72,6 @@ flowchart LR
     D --> Customer
 ```
 
-</div>
-
 ### 🔄 Real-Time Synchronization
 
 The **biggest technical challenge** was achieving instant, reliable synchronization:
@@ -91,15 +87,15 @@ The **biggest technical challenge** was achieving instant, reliable synchronizat
 
 The customer-facing application provides a seamless shopping experience:
 
-| Feature | Description |
-|---------|-------------|
-| 🏠 **Dynamic Marketplace** | Browse categorized fresh produce with real-time availability |
-| 🔍 **Smart Search** | Find products quickly with intelligent filtering |
-| 🛒 **Intuitive Cart** | Add, remove, and adjust quantities with instant price updates |
-| 📍 **Location Services** | Google Maps integration for accurate delivery addresses |
-| 🔔 **Order Tracking** | Real-time status updates from placement to delivery |
-| 👤 **Social Authentication** | Quick sign-in with Google or Facebook |
-| 📱 **Responsive Design** | Beautiful UI that adapts to any screen size |
+| Feature                     | Description                                                   |
+| --------------------------- | ------------------------------------------------------------- |
+| 🏠 **Dynamic Marketplace**   | Browse categorized fresh produce with real-time availability  |
+| 🔍 **Smart Search**          | Find products quickly with intelligent filtering              |
+| 🛒 **Intuitive Cart**        | Add, remove, and adjust quantities with instant price updates |
+| 📍 **Location Services**     | Google Maps integration for accurate delivery addresses       |
+| 🔔 **Order Tracking**        | Real-time status updates from placement to delivery           |
+| 👤 **Social Authentication** | Quick sign-in with Google or Facebook                         |
+| 📱 **Responsive Design**     | Beautiful UI that adapts to any screen size                   |
 
 ---
 
@@ -107,23 +103,25 @@ The customer-facing application provides a seamless shopping experience:
 
 The vendor/admin application puts business owners in control:
 
-| Feature | Description |
-|---------|-------------|
-| 📊 **Dashboard Overview** | At-a-glance view of pending orders and daily stats |
-| 🔔 **Instant Notifications** | Never miss an order—background push notifications |
-| ✅ **Order Management** | Accept, reject, and update order statuses |
-| 📦 **Inventory Control** | Real-time stock management to prevent overselling |
-| 📷 **Product Management** | Upload images, set prices, manage categories |
-| 📈 **Order History** | Complete transaction logs for business insights |
+| Feature                     | Description                                        |
+| --------------------------- | -------------------------------------------------- |
+| 📊 **Dashboard Overview**    | At-a-glance view of pending orders and daily stats |
+| 🔔 **Instant Notifications** | Never miss an order—background push notifications  |
+| ✅ **Order Management**      | Accept, reject, and update order statuses          |
+| 📦 **Inventory Control**     | Real-time stock management to prevent overselling  |
+| 📷 **Product Management**    | Upload images, set prices, manage categories       |
+| 📈 **Order History**         | Complete transaction logs for business insights    |
 
 ---
 
 ## 🏗️ System Architecture
 
-Built following **Clean Architecture** principles for maximum scalability and maintainability:
+Both apps are built following **Clean Architecture** principles for maximum scalability and maintainability:
+
+### 📱 Customer App (Waha)
 
 ```
-lib/
+waha/lib/
 ├── 📁 app/
 │   ├── 📁 models/           # Data models & entities
 │   ├── 📁 functions/        # Core business logic
@@ -131,34 +129,50 @@ lib/
 │
 ├── 📁 features/
 │   ├── 📁 authentication/   # Login, signup, social auth
-│   │   ├── 📁 data/         # Repositories, data sources
-│   │   ├── 📁 domain/       # Use cases, entities
-│   │   └── 📁 ui/           # Screens, widgets, bloc
-│   │
-│   ├── 📁 home/             # Main marketplace/dashboard
-│   ├── 📁 product_details/  # Product viewing & details
-│   ├── 📁 cart/             # Shopping cart management
-│   └── 📁 orders/           # Order processing & tracking
+│   ├── 📁 home/             # Main marketplace
+│   ├── 📁 product_details/  # Product viewing
+│   ├── 📁 cart/             # Shopping cart
+│   └── 📁 orders/           # Order tracking
 │
 ├── 📁 navigation/           # Route management
-└── 📁 main.dart             # App entry point
+└── main.dart
+```
+
+### 🏪 Vendor App (Waha Store)
+
+```
+waha_store/lib/
+├── 📁 app/
+│   ├── 📁 models/           # Data models & entities
+│   ├── 📁 functions/        # Core business logic
+│   └── 📁 utils/            # Utility functions & helpers
+│
+├── 📁 features/
+│   ├── 📁 authentication/   # Admin login
+│   ├── 📁 dashboard/        # Overview & stats
+│   ├── 📁 orders/           # Order management
+│   ├── 📁 products/         # Inventory control
+│   └── 📁 notifications/    # Push notifications
+│
+├── 📁 navigation/           # Route management
+└── main.dart
 ```
 
 ### 🔧 Tech Stack
 
 <div align="center">
 
-| Category | Technology |
-|:--------:|:----------:|
-| **Framework** | ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white) |
-| **Backend** | ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black) |
-| **Database** | ![Firestore](https://img.shields.io/badge/Cloud_Firestore-4285F4?style=flat-square&logo=firebase&logoColor=white) |
-| **Auth** | ![Firebase Auth](https://img.shields.io/badge/Firebase_Auth-DD2C00?style=flat-square&logo=firebase&logoColor=white) |
-| **Storage** | ![Firebase Storage](https://img.shields.io/badge/Cloud_Storage-4285F4?style=flat-square&logo=firebase&logoColor=white) |
-| **Messaging** | ![FCM](https://img.shields.io/badge/FCM-FFCA28?style=flat-square&logo=firebase&logoColor=black) |
-| **State Management** | ![Bloc](https://img.shields.io/badge/BLoC-8B5CF6?style=flat-square&logo=bloc&logoColor=white) |
-| **Maps** | ![Google Maps](https://img.shields.io/badge/Google_Maps-4285F4?style=flat-square&logo=googlemaps&logoColor=white) |
-| **Image Optimization** | ![ImageKit](https://img.shields.io/badge/ImageKit-3E54AC?style=flat-square&logo=imagekit&logoColor=white) |
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Bloc](https://img.shields.io/badge/BLoC-8B5CF6?style=for-the-badge&logo=bloc&logoColor=white)
+
+![Firestore](https://img.shields.io/badge/Cloud_Firestore-4285F4?style=for-the-badge&logo=firebase&logoColor=white)
+![FCM](https://img.shields.io/badge/Cloud_Messaging-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Google Maps](https://img.shields.io/badge/Google_Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white)
+
+![Firebase Auth](https://img.shields.io/badge/Firebase_Auth-DD2C00?style=for-the-badge&logo=firebase&logoColor=white)
+![Cloud Storage](https://img.shields.io/badge/Cloud_Storage-4285F4?style=for-the-badge&logo=firebase&logoColor=white)
+![ImageKit](https://img.shields.io/badge/ImageKit-3E54AC?style=for-the-badge&logo=imagekit&logoColor=white)
 
 </div>
 
@@ -201,21 +215,9 @@ flutter_screenutil: ^5.9.3
 
 <div align="center">
 
-| Home (Marketplace) | Product Details | Cart & Checkout |
-|:------------------:|:---------------:|:---------------:|
-| ![Home](screenshots/customer_home.png) | ![Details](screenshots/customer_product.png) | ![Cart](screenshots/customer_cart.png) |
-| *Browse fresh produce* | *View product info* | *Review & place order* |
-
-</div>
-
-### Vendor App Gallery
-
-<div align="center">
-
-| Admin Dashboard | Order Notification | Order Details |
-|:---------------:|:------------------:|:-------------:|
-| ![Dashboard](screenshots/vendor_dashboard.png) | ![Notification](screenshots/vendor_notification.png) | ![Order](screenshots/vendor_order.png) |
-| *Business overview* | *Instant alerts* | *Manage orders* |
+|              Home               |                Products                 |              Cart               |                Checkout                 |                Profile                |
+| :-----------------------------: | :-------------------------------------: | :-----------------------------: | :-------------------------------------: | :-----------------------------------: |
+| ![Home](assets/photos/home.jpg) | ![Products](assets/photos/products.jpg) | ![Cart](assets/photos/cart.jpg) | ![Checkout](assets/photos/checkout.jpg) | ![Profile](assets/photos/profile.jpg) |
 
 </div>
 
@@ -259,22 +261,15 @@ flutter_screenutil: ^5.9.3
 
 ## 📋 Project Status
 
-| Milestone | Status |
-|-----------|--------|
-| ✅ Core Architecture | Complete |
-| ✅ Customer App v1.0 | Complete |
-| ✅ Vendor App v1.0 | Complete |
-| ✅ Real-time Sync | Complete |
-| ✅ Push Notifications | Complete |
+| Milestone            | Status      |
+| -------------------- | ----------- |
+| ✅ Core Architecture  | Complete    |
+| ✅ Customer App v1.0  | Complete    |
+| ✅ Vendor App v1.0    | Complete    |
+| ✅ Real-time Sync     | Complete    |
+| ✅ Push Notifications | Complete    |
 | 🔄 Content Population | In Progress |
-| 📅 Market Launch | Upcoming |
-
-### 🔮 Roadmap
-
-- [ ] Expand delivery zones beyond Mansoura
-- [ ] Integrate payment gateway
-- [ ] Add analytics dashboard for vendors
-- [ ] Customer loyalty program
+| 📅 Market Launch      | Upcoming    |
 
 ---
 
@@ -282,9 +277,7 @@ flutter_screenutil: ^5.9.3
 
 <div align="center">
 
-### Connect with the Waha Community
-
-![QR Code](assets/qr_code.png)
+![QR Code](assets/photos/qr_code_banner.png)
 
 **Scan to join our WhatsApp & Facebook community!**
 
@@ -294,27 +287,17 @@ flutter_screenutil: ^5.9.3
 
 ---
 
-## 👨‍💻 Developer Spotlight
+## 📞 Contact & Social Links
 
 <div align="center">
 
-<img src="https://github.com/Yousef-Sh3ban.png" width="150" style="border-radius: 50%;" alt="Youssef Shaban"/>
-
-### **Youssef Shaban**
-
-**Mobile Application Developer | Flutter Specialist**
-
-*Passionate about building production-ready mobile solutions that solve real-world problems*
+**Youssef Shaban** — *Mobile Application Developer | Flutter Specialist*
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yousef-sh3ban)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Yousef-Sh3ban)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yosefshaban1551@gmail.com)
 
-</div>
-
 ---
-
-<div align="center">
 
 ### Built with 💚 using Flutter
 
@@ -322,7 +305,10 @@ flutter_screenutil: ^5.9.3
 
 ---
 
+⭐ **If you found this project helpful, please consider giving it a star!**
+
+---
+
 *© 2026 Youssef Shaban. All rights reserved.*
 
 </div>
-]]>
