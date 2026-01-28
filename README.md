@@ -44,20 +44,14 @@ Customer Places Order → Instant Push Notification → Vendor Accepts → Statu
 
 Waha consists of **two distinct applications** that communicate in real-time through Firebase:
 
-<table width="100%">
-<tr>
-<td align="center" width="50%">
-<h3>📱 Customer App (Waha)</h3>
-<img src="assets/photos/customer_icon.jpg" width="100"/>
-<p><em>Shop for fresh produce</em></p>
-</td>
-<td align="center" width="50%">
-<h3>🏪 Vendor App (Waha Store)</h3>
-<img src="assets/photos/admin_icon.jpg" width="100"/>
-<p><em>Manage orders & inventory</em></p>
-</td>
-</tr>
-</table>
+<div align="center">
+
+|                  📱 Customer App (Waha)                   |       |               🏪 Vendor App (Waha Store)               |
+| :------------------------------------------------------: | :---: | :---------------------------------------------------: |
+| <img src="assets/photos/customer_icon.jpg" width="100"/> |       | <img src="assets/photos/admin_icon.jpg" width="100"/> |
+|                 *Shop for fresh produce*                 |       |              *Manage orders & inventory*              |
+
+</div>
 
 
 ```mermaid
@@ -90,12 +84,11 @@ flowchart LR
 
 ### 🔄 Real-Time Synchronization
 
-The **biggest technical challenge** was achieving instant, reliable synchronization:
+One of the **biggest technical challenge** was achieving instant, reliable synchronization:
 
 - **Instant Notifications**: When a customer places an order, the vendor receives a push notification *immediately*—even when the app is in background mode
-- **Live Inventory Updates**: Stock levels update in real-time to prevent overselling
-- **Order Status Tracking**: Customers see live updates as their order progresses through the fulfillment pipeline
-- **Offline Resilience**: Firebase's offline persistence ensures no data is lost during connectivity issues
+- **Order Status Tracking**: Customers receive live updates as their order progresses through the fulfillment pipeline
+- **Offline Resilience**: Firebase's built-in caching allows browsing previously loaded data even without connectivity
 
 ---
 
@@ -115,15 +108,14 @@ The **biggest technical challenge** was achieving instant, reliable synchronizat
 
 The customer-facing application provides a seamless shopping experience:
 
-| Feature                     | Description                                                   |
-| --------------------------- | ------------------------------------------------------------- |
-| 🏠 **Dynamic Marketplace**   | Browse categorized fresh produce with real-time availability  |
-| 🔍 **Smart Search**          | Find products quickly with intelligent filtering              |
-| 🛒 **Intuitive Cart**        | Add, remove, and adjust quantities with instant price updates |
-| 📍 **Location Services**     | Google Maps integration for accurate delivery addresses       |
-| 🔔 **Order Tracking**        | Real-time status updates from placement to delivery           |
-| 👤 **Social Authentication** | Quick sign-in with Google or Facebook                         |
-| 📱 **Responsive Design**     | Beautiful UI that adapts to any screen size                   |
+| Feature                     | Description                                                            |
+| --------------------------- | ---------------------------------------------------------------------- |
+| 🏠 **Dynamic Marketplace**   | Browse categorized fresh produce with real-time availability           |
+| 🔍 **Smart Search**          | Find products quickly with intelligent filtering                       |
+| 🛒 **Intuitive Cart**        | Add, remove, and adjust quantities with instant price updates          |
+| 📍 **Location Services**     | Automatic GPS-based location detection for accurate delivery addresses |
+| 👤 **Social Authentication** | Quick sign-in with Google or Facebook                                  |
+| 📱 **Responsive Design**     | Beautiful UI that adapts to any screen size                            |
 
 ---
 
@@ -131,20 +123,20 @@ The customer-facing application provides a seamless shopping experience:
 
 The vendor/admin application puts business owners in control:
 
-| Feature                     | Description                                        |
-| --------------------------- | -------------------------------------------------- |
-| 📊 **Dashboard Overview**    | At-a-glance view of pending orders and daily stats |
-| 🔔 **Instant Notifications** | Never miss an order—background push notifications  |
-| ✅ **Order Management**      | Accept, reject, and update order statuses          |
-| 📦 **Inventory Control**     | Real-time stock management to prevent overselling  |
-| 📷 **Product Management**    | Upload images, set prices, manage categories       |
-| 📈 **Order History**         | Complete transaction logs for business insights    |
+| Feature                      | Description                                        |
+| ---------------------------- | -------------------------------------------------- |
+| 📊 **Dashboard Overview**     | At-a-glance view of pending orders and daily stats |
+| 🔔 **Instant Notifications**  | Never miss an order—background push notifications  |
+| ⚡ **Quick Inventory Action** | Toggle visibility & update prices instantly        |
+| 📈 **Order History**          | Complete transaction logs for business insights    |
 
 ---
 
 ## 🏗️ System Architecture
 
 Both apps are built following **Clean Architecture** principles for maximum scalability and maintainability:
+
+> ✨ **Achieved +40% code sharing** between Customer and Vendor apps by modularizing core logic and UI components.
 
 ### 📱 Customer App (Waha)
 
@@ -251,6 +243,14 @@ flutter_screenutil: ^5.9.3
 | :---------------------------------------------: | :-------------------------------------------------: | :------------------------------------------------: |
 | <img src="assets/photos/cart.png" width="200"/> | <img src="assets/photos/checkout.png" width="200"/> | <img src="assets/photos/profile.png" width="200"/> |
 
+|                      Login                       |                      Sign Up                      |                      Location                       |
+| :----------------------------------------------: | :-----------------------------------------------: | :-------------------------------------------------: |
+| <img src="assets/photos/login.png" width="200"/> | <img src="assets/photos/signup.png" width="200"/> | <img src="assets/photos/location.png" width="200"/> |
+
+|                      Who Are We                       |
+| :---------------------------------------------------: |
+| <img src="assets/photos/who_are_we.png" width="200"/> |
+
 </div>
 
 ### 🏪 Vendor App
@@ -265,40 +265,35 @@ flutter_screenutil: ^5.9.3
 
 ---
 
-## 🚀 Getting Started
+## 📲 Download
 
-### Prerequisites
+<div align="center">
 
-- Flutter SDK 3.x or higher
-- Firebase account with configured project
-- Google Maps API key
-- Android Studio / VS Code
+### Try Waha Customer App
 
-### Installation
+![Download QR](assets/photos/download_qr.png)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Yousef-Sh3ban/waha.git
-   cd waha
-   ```
+**Scan to download the APK**
 
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
+*Or download directly from [Releases](https://github.com/Yousef-Sh3ban/waha/releases)*
 
-3. **Configure Firebase**
-   - Add your `google-services.json` (Android) or `GoogleService-Info.plist` (iOS)
-   - Enable Authentication, Firestore, Storage, and Cloud Messaging
+</div>
 
-4. **Add API Keys**
-   - Configure Google Maps API key in respective platform files
+---
+## 🔒 Source Code & Availability
 
-5. **Run the app**
-   ```bash
-   flutter run
-   ```
+> **Note:** This repository is intended as a **technical showcase**.
 
+As **Waha** is a commercial product currently entering the market, the full source code is hosted in a private repository to protect proprietary business logic and client confidentiality.
+
+**However, technical transparency is important.** I am happy to provide access to the codebase for **interviewers, recruiters, or potential clients** upon request. I can offer:
+
+- 👨‍💻 A live code walkthrough via meeting.
+- 🔐 Restricted access to specific architectural modules (Clean Architecture layers, Bloc logic, etc.).
+- 📄 Snippets of specific implementations.
+
+**Interested in reviewing the code?**
+Please feel free to reach out directly via [LinkedIn](https://linkedin.com/in/yousef-sh3ban) or [Email](mailto:yosefshaban1551@gmail.com).
 ---
 
 ## 📋 Project Status
@@ -341,11 +336,7 @@ flutter_screenutil: ^5.9.3
 
 ---
 
-### Built with 💚 using Flutter
-
-**Waha** — Bringing fresh produce to your doorstep
-
----
+### Built with 💚 using Flutter 
 
 ⭐ **If you found this project helpful, please consider giving it a star!**
 
