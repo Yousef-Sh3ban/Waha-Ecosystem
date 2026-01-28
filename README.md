@@ -271,11 +271,11 @@ flutter_screenutil: ^5.9.3
 
 ### Try Waha Customer App
 
-![Download QR](assets/photos/download_qr.png)
+<img src="assets/photos/download_qr.png" width="180" alt="Download QR Code"/>
 
 **Scan to download the APK**
 
-*Or download directly from [Releases](https://github.com/Yousef-Sh3ban/waha/releases)*
+*Or download directly from [Releases](https://github.com/Yousef-Sh3ban/Waha-Ecosystem/releases)*
 
 </div>
 
